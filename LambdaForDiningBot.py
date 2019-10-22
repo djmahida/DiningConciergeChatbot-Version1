@@ -111,12 +111,9 @@ def validate_dining_suggestion(location, time, cuisine):
     return build_validation_result(True, None, None)
 
 
-""" --- Functions that control the bot's behavior --- """
-
 
 def diningSuggestionIntent(intent_request):
     """
-    Performs dialog management and fulfillment for ordering flowers.
     Beyond fulfillment, the implementation of this intent demonstrates the use of the elicitSlot dialog action
     in slot validation and re-prompting.
     """
@@ -144,18 +141,14 @@ def diningSuggestionIntent(intent_request):
                                validation_result['violatedSlot'],
                                validation_result['message'])
 
-        # Pass the price of the flowers back through session attributes to be used in various prompts defined
-        # on the bot model.
         output_session_attributes = intent_request['sessionAttributes'] if intent_request['sessionAttributes'] is not None else {}
 
         return delegate(output_session_attributes, get_slots(intent_request))
 
-    # Order the flowers, and rely on the goodbye message of the bot to define the message to the end user.
-    # In a real bot, this would likely involve a call to a backend service.
     return close(intent_request['sessionAttributes'],
                  'Fulfilled',
                  {'contentType': 'PlainText',
-                  'content': 'Thanks, your order for {} has been placed and will be ready for pickup by {} on {}'.format(flower_type, pickup_time, date)})
+                  'content': ''})
 
 
 """ --- Intents --- """
@@ -182,8 +175,6 @@ def dispatch(intent_request):
 
     raise Exception('Intent with name ' + intent_name + ' not supported')
 
-
-""" --- Main handler --- """
 
 
 def lambda_handler(event, context):

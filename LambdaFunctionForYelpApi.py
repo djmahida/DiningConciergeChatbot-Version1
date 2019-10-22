@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     URL = "https://api.yelp.com/v3/businesses/search?location=" + location + "&categories=" + cuisine
     header = {
         
-        'Authorization' : 'Bearer KGyinFXhAZWVS3tMHtbQEaWhmskxdLUNJxc2QWuJxKH6mYp3v078IpiT8ZZ4H264Wg1WqEeH5hMRsrI0bGYMtKaQp8C_BmPdk_0C0ALP2LpxzpUe7BLEFctrvpKNXHYx'
+        'Authorization' : 'Bearer XXXXXXXXX---Enter Your Authorization Token Here---XXXXXXXXXXX '
     }
     
     message = "Here are my " + cuisine + " restaurant suggestions for "+  numberofpeople + " people for today at " + diningtime + ": "

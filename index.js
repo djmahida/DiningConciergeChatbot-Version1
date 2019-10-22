@@ -8,22 +8,22 @@ AWS.config.region = 'us-east-1'; // Region
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
     IdentityPoolId: 'ENter user_pool_id',
 	Logins: {
-	   'cognito-idp.us-east-1.amazonaws.com/us-east-1_F92Il7a5T': cognito_token
+	   'cognito-idp.us-east-1.amazonaws.com/us-east-1_XXXXXXXXX': cognito_token
 	}
 });
 
 // AWS.config.region = 'us-east-1'; // Region
 // AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-//     IdentityPoolId: 'us-east-1:1da1482f-963e-4418-b103-c9d0393187e1',
+//     IdentityPoolId: 'us-east-1:XXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX',
 // });
 
 setTimeout(function() {
 	if(cognito_token=="" || AWS.config.credentials.sessionToken==""){
 
 		
-		var appCilentId = 'Enter App client ID';
-		var callbackUrl = 'https://s3.amazonaws.com/chatbot-devmahida/index.html';
-		var domainName = 'https://mahida.auth.us-east-1.amazoncognito.com';
+		var appCilentId = 'XXXXXXXXXXXX'; //Enter App client ID
+		var callbackUrl = 'https://s3.amazonaws.com/XXXXXXXX/index.html'; //Change it to your Frontend Link
+		var domainName = 'https://XXXXX.auth.us-east-1.amazoncognito.com'; //Enter your Domain Name
 
 
   redirectWebsite = domainName + '/login?response_type=token&client_id=' + appCilentId + '&redirect_uri=' + callbackUrl ;
@@ -34,7 +34,7 @@ setTimeout(function() {
 
 
 }
-}, 2000);
+}, 2000); //Redirecting the user to the login page if the user is not already logged in.
 
 
 

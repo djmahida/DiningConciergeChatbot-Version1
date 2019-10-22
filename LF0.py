@@ -10,8 +10,6 @@ def lambda_handler(event, context):
     userId = event['identityID']
     
     print(userId)
-    
-    # TODO implement
     message = event['message']
     
     client = boto3.client('lex-runtime')
